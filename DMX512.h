@@ -2,6 +2,7 @@
 #define _DMX512_H_
 
 #include <mbed.h>
+#define C_INIT (uint8_t *)0x801F000
 #define DMX_SIZE 193
 #define DMX_START_CODE 0
 
