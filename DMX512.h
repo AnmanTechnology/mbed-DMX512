@@ -3,6 +3,7 @@
 
 #include <mbed.h>
 #define C_INIT (uint8_t *)0x801F000
+#define C_CLR 0x20
 #define DMX_SIZE 193
 #define DMX_START_CODE 0
 
@@ -129,7 +130,7 @@ void DMX512::put(int addr, int data)
 
 int DMX512::get(int addr)
 {
-    if (addr < 0 || addr >= DMX_SIZE)
+    if (addr < 0 || addr >= DMX_SIZE || addr & C_CLR)
         return -1;
     return data_rx[addr - 1];
 }
